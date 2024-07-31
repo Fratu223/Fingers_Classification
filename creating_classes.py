@@ -10,6 +10,14 @@ import shutil
 import os
 
 def creating_classes(folder_name:str, classes:int):
+    """_summary_
+
+    Args:
+        folder_name (str): _description_
+        classes (int): _description_
+    """
+
+
     image_paths = []
     for image_name in os.listdir(folder_name):
         image_paths.append(os.path.join(folder_name, image_name))
