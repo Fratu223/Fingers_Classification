@@ -9,14 +9,6 @@ import numpy as np
 import shutil
 import os
 
-def extract_features(img_path, model):
-        img = load_img(img_path, target_size=(224, 224))
-        img_data = img_to_array(img)
-        img_data = np.expand_dims(img_data, axis=0)
-        img_data = preprocess_input(img_data)
-        features = model.predict(img_data)
-        return features.flatten()
-
 def creating_classes(folder_name:str, classes:int):
     image_paths = []
     for image_name in os.listdir(folder_name):
@@ -24,7 +16,15 @@ def creating_classes(folder_name:str, classes:int):
     
     model = VGG16(weights='imagenet', include_top=False)
 
-    features = [extract_features(img_path, model) for img_path in image_paths]
+    features = []
+
+    for img_path in image_paths:
+        img = load_img(img_path, target_size=(224, 224))
+        img_data = img_to_array(img)
+        img_data = np.expand_dims(img_data, axis=0)
+        img_data = preprocess_input(img_data)
+        feature = model.predict(img_data)
+        features.append(feature)
 
     pca = PCA(n_components=50)
     reduced_features = pca.fit_transform(features)
@@ -32,8 +32,11 @@ def creating_classes(folder_name:str, classes:int):
     kmeans = KMeans(n_clusters=classes) 
     clusters = kmeans.fit_predict(reduced_features)
 
-    for i in range(classes):
+    i = 0
+
+    while i < classes:
         os.makedirs(f'cluster_{i}', exist_ok=True)
+        i+=1
 
     for img_path, cluster in zip(image_paths, clusters):
         shutil.move(img_path, os.path.join(f'cluster_{cluster}', os.path.basename(img_path)))
