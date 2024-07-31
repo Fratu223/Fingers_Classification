@@ -17,7 +17,7 @@ def extract_features(img_path, model):
         features = model.predict(img_data)
         return features.flatten()
 
-def creating_classes(folder_name:str, clusters:int):
+def creating_classes(folder_name:str, classes:int):
     image_paths = []
     for image_name in os.listdir(folder_name):
         image_paths.append(os.path.join(folder_name, image_name))
@@ -29,10 +29,10 @@ def creating_classes(folder_name:str, clusters:int):
     pca = PCA(n_components=50)
     reduced_features = pca.fit_transform(features)
     
-    kmeans = KMeans(n_clusters=clusters) 
+    kmeans = KMeans(n_clusters=classes) 
     clusters = kmeans.fit_predict(reduced_features)
 
-    for i in range(clusters):
+    for i in range(classes):
         os.makedirs(f'cluster_{i}', exist_ok=True)
 
     for img_path, cluster in zip(image_paths, clusters):
