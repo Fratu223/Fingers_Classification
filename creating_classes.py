@@ -1,6 +1,5 @@
 from keras.applications.vgg16 import VGG16, preprocess_input
 from keras.utils import load_img, img_to_array
-from keras.preprocessing import image
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 from sklearn.manifold import TSNE
@@ -24,15 +23,15 @@ def creating_classes(folder_name:str, classes:int):
     
     model = VGG16(weights='imagenet', include_top=False)
 
-    features = []
-
-    for img_path in image_paths:
+    def extract_features(img_path, model):
         img = load_img(img_path, target_size=(224, 224))
         img_data = img_to_array(img)
         img_data = np.expand_dims(img_data, axis=0)
         img_data = preprocess_input(img_data)
-        feature = model.predict(img_data)
-        features.append(feature)
+        features = model.predict(img_data)
+        return features.flatten()
+    
+    features = [extract_features(img_path, model) for img_path in image_paths]
 
     pca = PCA(n_components=50)
     reduced_features = pca.fit_transform(features)
