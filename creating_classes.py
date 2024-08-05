@@ -47,3 +47,28 @@ def creating_classes(folder_name:str, classes:int):
 
     for img_path, cluster in zip(image_paths, clusters):
         shutil.move(img_path, os.path.join(f'cluster_{cluster}', os.path.basename(img_path)))
+
+
+def load_data(folders):
+    """_summary_
+
+    Args:
+        folders (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+
+    
+    images = []
+    labels = []
+    for label, folder in enumerate(folders):
+        folder_path = os.path.join('path_to_data', folder)
+        for file in os.listdir(folder_path):
+            if file.endswith('.jpg') or file.endswith('.png'):
+                img_path = os.path.join(folder_path, file)
+                img = load_img(img_path, target_size=(64, 64))  # Resize images to 64x64
+                img_array = img_to_array(img)
+                images.append(img_array)
+                labels.append(label)
+    return np.array(images), np.array(labels)
