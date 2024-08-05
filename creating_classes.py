@@ -59,11 +59,11 @@ def load_data(folders):
         _type_: _description_
     """
 
-    
+
     images = []
     labels = []
     for label, folder in enumerate(folders):
-        folder_path = os.path.join('path_to_data', folder)
+        folder_path = folder
         for file in os.listdir(folder_path):
             if file.endswith('.jpg') or file.endswith('.png'):
                 img_path = os.path.join(folder_path, file)
