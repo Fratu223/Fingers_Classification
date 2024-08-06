@@ -75,6 +75,16 @@ def load_data(folders):
     return np.array(images), np.array(labels)
 
 def preprocess_image(frame):
+    """_summary_
+
+    Args:
+        frame (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+
+
     img = cv2.resize(frame, (64, 64))
     img = img / 255.0
     img = np.expand_dims(img, axis=0)
