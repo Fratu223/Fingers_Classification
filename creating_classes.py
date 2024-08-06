@@ -6,6 +6,7 @@ from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 import numpy as np
 import shutil
+import cv2
 import os
 
 def creating_classes(folder_name:str, classes:int):
@@ -72,3 +73,9 @@ def load_data(folders):
                 images.append(img_array)
                 labels.append(label)
     return np.array(images), np.array(labels)
+
+def preprocess_image(frame):
+    img = cv2.resize(frame, (64, 64))
+    img = img / 255.0
+    img = np.expand_dims(img, axis=0)
+    return img
