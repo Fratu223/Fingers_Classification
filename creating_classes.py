@@ -10,11 +10,13 @@ import cv2
 import os
 
 def creating_classes(folder_name:str, classes:int):
-    """_summary_
+    """
+    This function takes as input the name of a folder with images in it and the number of classes the user wants to create from the folder. 
+    It creates folders for each class and moves the images into those folders based on a KMeans clustering model.
 
     Args:
-        folder_name (str): _description_
-        classes (int): _description_
+        folder_name (str): The name of the folder where the images are located
+        classes (int): The number of classes the user wants to create
     """
 
 
@@ -50,14 +52,17 @@ def creating_classes(folder_name:str, classes:int):
         shutil.move(img_path, os.path.join(f'cluster_{cluster}', os.path.basename(img_path)))
 
 
-def load_data(folders):
-    """_summary_
+def load_data(folders:list):
+    """
+    This function labels images from a list of folders. The folders names should be the labels assigned to the images. 
 
     Args:
-        folders (_type_): _description_
+        folders (list): List of folders
 
-    Returns:
-        _type_: _description_
+    :returns:
+        - images (numpy array): Numpy array of the images
+        
+        - labels (numpy array): Numpy array of the labels
     """
 
 
@@ -68,20 +73,21 @@ def load_data(folders):
         for file in os.listdir(folder_path):
             if file.endswith('.jpg') or file.endswith('.png'):
                 img_path = os.path.join(folder_path, file)
-                img = load_img(img_path, target_size=(64, 64))  # Resize images to 64x64
+                img = load_img(img_path, target_size=(64, 64))
                 img_array = img_to_array(img)
                 images.append(img_array)
                 labels.append(label)
     return np.array(images), np.array(labels)
 
 def preprocess_image(frame):
-    """_summary_
+    """
+    This function applies preprocessing steps to an image.
 
     Args:
-        frame (_type_): _description_
+        frame : Image the steps will be applied on
 
     Returns:
-        _type_: _description_
+        NDArray: Preprocessed image
     """
 
 
