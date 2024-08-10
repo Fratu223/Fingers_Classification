@@ -17,4 +17,14 @@ Fig 1. Indicator of the class
 
 Fig 2. Function for creating classes with unsupervised learning
 
-The function above is split into 
+The function above is split into five parts.
+
+The first part is getting the folder paths of the images that we need to create classes for.
+
+The second part is extracting the features of the images using the VGG16 Neural Network model.
+
+The third part is using PCA to make the features of the images more interpretable for the KMeans algorithm.
+
+The fourth part is applying KMeans on the extracted features.
+
+The fith part is relocating the images based on the KMeans algorithm.
