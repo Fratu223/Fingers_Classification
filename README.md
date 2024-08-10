@@ -11,6 +11,6 @@ Even though the images had parts of the name to indicate which class they belong
 
 Fig 1. Indicator of the class
 
-![Creating_classes_function](assests/creating_classes_function.png.png "Fig 2. Function for creating classes with unsupervised learning")
+![Creating_classes_function](assests/creating_classes_function.png "Fig 2. Function for creating classes with unsupervised learning")
 
 Fig 2. Function for creating classes with unsupervised learning
