@@ -35,3 +35,7 @@ The model is a simple MLP with one Flatten layer for flattening the input, one i
 ![Model](assests/Model.png "Fig 3. Model Structure")
 
 Fig 3. Model Structure
+
+![Model Epochs](assests/model_epochs.png "Fig 4. Model Fitting Epochs")
+
+Fig 4. Model Fitting Epochs
