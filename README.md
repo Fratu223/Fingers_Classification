@@ -43,3 +43,7 @@ Fig 4. Model Fitting Epochs
 ![Model Evaluation](assests/model_evaluation.png "Fig 5. Model Fitting Evaluation")
 
 Fig 5. Model Fitting Evaluation
+
+![Model Test](assests/model_test.png "Fig 6. Model Test")
+
+Fig 6. Model Test
