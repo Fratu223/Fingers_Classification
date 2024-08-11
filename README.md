@@ -39,3 +39,7 @@ Fig 3. Model Structure
 ![Model Epochs](assests/model_epochs.png "Fig 4. Model Fitting Epochs")
 
 Fig 4. Model Fitting Epochs
+
+![Model Evaluation](assests/model_evaluation.png "Fig 5. Model Fitting Evaluation")
+
+Fig 5. Model Fitting Evaluation
