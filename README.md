@@ -28,3 +28,8 @@ The third part is using PCA to make the features of the images more interpretabl
 The fourth part is applying KMeans on the extracted features.
 
 The fith part is relocating the images based on the KMeans algorithm.
+
+# Model Building
+The model is a simple MLP with one Flatten layer for flattening the input, one input layer with 128 nodes and with ReLU activation function, two hidden layers with 64, respectively 32 nodes, both having ReLU activation function and the output layer with 6 nodes and softmax activation function.
+
+![Model](assests/Model.png "Fig 3. Model Structure")
