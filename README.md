@@ -47,3 +47,5 @@ Fig 5. Model Fitting Evaluation
 ![Model Test](assests/model_test.png "Fig 6. Model Test")
 
 Fig 6. Model Test
+
+I fitted the model on 20 epochs, setting a batch size of 32 and adding an earlystopping callback with the patience set at 2 and with the option of restoring the best weights.
