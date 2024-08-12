@@ -49,3 +49,14 @@ Fig 5. Model Fitting Evaluation
 Fig 6. Model Test
 
 I fitted the model on 20 epochs, setting a batch size of 32 and adding an earlystopping callback with the patience set at 2 and with the option of restoring the best weights.
+
+# Application
+The application was made using the opencv library. It gets every frame a hand conture is caught by the camera by applying a Gaussian Blur mask on the frame caught by the camera. Every frame where there is a hand present gets predicted in real time by the model than the result appears on the screen.
+
+![Finger 0](assests/Finger_0.png "Fig 7")
+
+![Finger 1](assests/Finger_1.png "Fig 8")
+
+![Finger 2](assests/Finger_2.png "Fig 9")
+
+Fig 7, 8 and 9. Real time predicting of a hand holding up 0, 1 and 2 fingers.
