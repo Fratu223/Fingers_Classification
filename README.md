@@ -60,3 +60,5 @@ The application was made using the opencv library. It gets every frame a hand co
 ![Finger 2](assests/Finger_2.png "Fig 9")
 
 Fig 7, 8 and 9. Real time predicting of a hand holding up 0, 1 and 2 fingers.
+
+The application has some errors. It does not predict hands that hold up 3, 4 or 5 fingers. That may be due to the background but also because of the Gaussian Blur. There is probably a better mask to use in this use case.
